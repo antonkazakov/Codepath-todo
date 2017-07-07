@@ -26,7 +26,7 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "TaskDat
 
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable("Tasks", true,
-                "_id" to INTEGER + PRIMARY_KEY ,
+                "_id" to INTEGER + PRIMARY_KEY,
                 "title" to TEXT,
                 "description" to TEXT,
                 "created_at" to INTEGER,

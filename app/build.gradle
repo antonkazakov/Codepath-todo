@@ -45,6 +45,8 @@ dependencies {
 repositories {
     mavenCentral()
 }
-kapt {
-    generateStubs = true
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }
