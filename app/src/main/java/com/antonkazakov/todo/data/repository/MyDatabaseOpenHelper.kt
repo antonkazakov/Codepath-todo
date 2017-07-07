@@ -30,10 +30,12 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, NAME, nu
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.createTable("User", true,
+        db.createTable("Tasks", true,
                 "id" to INTEGER + PRIMARY_KEY,
-                "name" to TEXT,
-                "photo" to BLOB)
+                "title" to TEXT,
+                "description" to TEXT,
+                "created_at" to INTEGER,
+                "ends_at" to INTEGER)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

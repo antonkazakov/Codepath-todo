@@ -17,7 +17,6 @@ class TasksRepository @Inject constructor(val databaseOpenHelper: MyDatabaseOpen
         return databaseOpenHelper.use {
             select("Tasks")
                     .exec { parseList(classParser<Task>()) }
-
         }
     }
 
