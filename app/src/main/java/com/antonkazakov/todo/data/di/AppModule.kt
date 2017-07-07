@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.data
+package com.antonkazakov.todo.data.di
 
 import android.content.Context
 import com.antonkazakov.todo.data.db.MyDatabaseOpenHelper

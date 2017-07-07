@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.data
+package com.antonkazakov.todo.data.di
 
 import dagger.Component
 import javax.inject.Singleton

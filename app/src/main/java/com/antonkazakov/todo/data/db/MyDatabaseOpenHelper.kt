@@ -12,6 +12,7 @@ import org.jetbrains.anko.db.*
 class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "TaskDataBase123", null, 2) {
 
     companion object {
+
         private var instance: MyDatabaseOpenHelper? = null
 
         @Synchronized

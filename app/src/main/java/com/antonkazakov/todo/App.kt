@@ -1,9 +1,9 @@
 package com.antonkazakov.todo
 
 import android.app.Application
-import com.antonkazakov.todo.data.AppComponent
-import com.antonkazakov.todo.data.AppModule
 import com.antonkazakov.todo.data.DaggerAppComponent
+import com.antonkazakov.todo.data.di.AppComponent
+import com.antonkazakov.todo.data.di.AppModule
 
 /**
  * @author Anton Kazakov

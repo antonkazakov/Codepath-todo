@@ -26,6 +26,7 @@ dependencies {
     String ankoVersion = "0.10.1"
     compile "org.jetbrains.anko:anko-commons:$ankoVersion"
     compile "org.jetbrains.anko:anko-sqlite:$ankoVersion"
+    compile "org.jetbrains.anko:anko-coroutines:$ankoVersion"
 
     String daggerVersion = '2.10'
     compile "com.google.dagger:dagger:$daggerVersion"
