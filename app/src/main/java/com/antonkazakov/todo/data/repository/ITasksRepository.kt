@@ -25,4 +25,10 @@ interface ITasksRepository {
      */
     fun insertTask(task: Task)
 
+    /**
+     * Update task
+     * @task Task to be updated
+     */
+    fun updateTask(id: Long, task: Task)
+
 }

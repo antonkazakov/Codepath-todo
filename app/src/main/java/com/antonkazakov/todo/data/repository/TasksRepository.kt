@@ -36,4 +36,14 @@ class TasksRepository @Inject constructor(val databaseOpenHelper: MyDatabaseOpen
         }
     }
 
+    override fun updateTask(id: Long, task: Task) {
+        databaseOpenHelper.use {
+            update("Tasks",
+                    "title" to task.title,
+                    "description" to task.description,
+                    "ends_at" to task.endsAt)
+                    .whereArgs("_id = {userId}", "userId" to id)
+        }
+    }
+
 }

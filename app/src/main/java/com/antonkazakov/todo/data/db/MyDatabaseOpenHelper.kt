@@ -9,7 +9,6 @@ import org.jetbrains.anko.db.*
  * @date 07.07.17.
  */
 
-
 class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "TaskDataBase123", null, 2) {
 
     companion object {
