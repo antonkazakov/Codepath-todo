@@ -19,4 +19,10 @@ interface ITasksRepository {
      */
     fun getTaskById(id: Long): Task?
 
+    /**
+     * Insert new task to DB
+     * @task Task to be inserted
+     */
+    fun insertTask(task: Task)
+
 }

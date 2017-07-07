@@ -1,8 +1,8 @@
 package com.antonkazakov.todo.data
 
 import android.content.Context
+import com.antonkazakov.todo.data.db.MyDatabaseOpenHelper
 import com.antonkazakov.todo.data.repository.ITasksRepository
-import com.antonkazakov.todo.data.repository.MyDatabaseOpenHelper
 import com.antonkazakov.todo.data.repository.TasksRepository
 import dagger.Module
 import dagger.Provides
@@ -14,8 +14,6 @@ import javax.inject.Singleton
  */
 @Module
 class AppModule(val context: Context) {
-
-    //TODO move to another module
 
     @Singleton
     @Provides

@@ -1,10 +1,8 @@
 package com.antonkazakov.todo.data.repository
 
 import com.antonkazakov.todo.data.beans.Task
-import org.jetbrains.anko.db.classParser
-import org.jetbrains.anko.db.parseList
-import org.jetbrains.anko.db.parseSingle
-import org.jetbrains.anko.db.select
+import com.antonkazakov.todo.data.db.MyDatabaseOpenHelper
+import org.jetbrains.anko.db.*
 import javax.inject.Inject
 
 /**
@@ -23,10 +21,19 @@ class TasksRepository @Inject constructor(val databaseOpenHelper: MyDatabaseOpen
     override fun getTaskById(id: Long): Task? {
         return databaseOpenHelper.use {
             select("Tasks")
-                    .whereArgs("(id = {id}", "id" to id)
+                    .whereArgs("(_id = {id})", "id" to id)
                     .exec { parseSingle(classParser<Task>()) }
         }
     }
 
+    override fun insertTask(task: Task) {
+        databaseOpenHelper.use {
+            insert("Tasks",
+                    "title" to task.title,
+                    "description" to task.description,
+                    "created_at" to System.currentTimeMillis(),
+                    "ends_at" to System.currentTimeMillis())
+        }
+    }
 
 }

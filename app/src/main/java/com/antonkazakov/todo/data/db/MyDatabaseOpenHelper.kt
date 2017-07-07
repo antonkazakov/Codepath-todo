@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.data.repository
+package com.antonkazakov.todo.data.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -9,14 +9,9 @@ import org.jetbrains.anko.db.*
  * @date 07.07.17.
  */
 
-private val VERSION = 1
-private val NAME = "TasksDatabase"
 
-class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, NAME, null, VERSION) {
+class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "TaskDataBase123", null, 2) {
 
-    /**
-     * Lazy loading BD instance
-     */
     companion object {
         private var instance: MyDatabaseOpenHelper? = null
 
@@ -31,7 +26,7 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, NAME, nu
 
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable("Tasks", true,
-                "id" to INTEGER + PRIMARY_KEY,
+                "_id" to INTEGER + PRIMARY_KEY ,
                 "title" to TEXT,
                 "description" to TEXT,
                 "created_at" to INTEGER,
@@ -39,8 +34,8 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, NAME, nu
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Here you can upgrade tables, as usual
-        db.dropTable("User", true)
+        db.dropTable("Tasks", true)
+        onCreate(db)
     }
-}
 
+}
