@@ -15,6 +15,10 @@ class TasksPresenter(val tasksRepository: TasksRepository, val taskView: ITasksV
 
     override fun getTasks() {
         async(CommonPool) {
+            for (i in 1..10){
+                var task = Task(title = "test$i", description = "desc$i")
+                tasksRepository.insertTask(task)
+            }
             val data: Deferred<List<Task>?> = bg {
                 tasksRepository.getTasks()
             }

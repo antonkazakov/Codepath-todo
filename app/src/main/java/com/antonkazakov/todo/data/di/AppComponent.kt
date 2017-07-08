@@ -1,5 +1,7 @@
 package com.antonkazakov.todo.data.di
 
+import com.antonkazakov.todo.presentation.tasks.TasksComponent
+import com.antonkazakov.todo.presentation.tasks.TasksModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -11,5 +13,6 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(AppModule::class))
 interface AppComponent {
 
+    fun plusTasksComponent(tasksModule: TasksModule): TasksComponent
 
 }
