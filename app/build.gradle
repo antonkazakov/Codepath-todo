@@ -15,8 +15,12 @@ android {
     }
     buildTypes {
         release {
+            shrinkResources true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            debuggable true
         }
     }
 }
@@ -34,7 +38,7 @@ dependencies {
 
     String robolectricVersion = "3.3.2"
     testCompile "org.robolectric:robolectric:$robolectricVersion"
-
+    testCompile "org.mockito:mockito-core:2.+"
 
 
 

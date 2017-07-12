@@ -18,9 +18,10 @@ class AddTaskPresenter(val addTaskView: IAddTaskView, val tasksRepository: ITask
             val data: Deferred<Boolean> = bg {
                 tasksRepository.insertTask(task)
             }
-            if (data.await()) {
+            if (data.await())
                 addTaskView.taskAdded(task)
-            }
+            else
+                addTaskView.showError()
         }
     }
 

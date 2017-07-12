@@ -18,7 +18,9 @@ class TaskPresenter(val taskView: ITaskView, val tasksRepository: TasksRepositor
             val data: Deferred<Task?> = bg {
                 tasksRepository.getTaskById(id)
             }
-            data.await()?.let { taskView.showTask(it) }
+            data.await()?.let {
+                taskView.showTask(it)
+            }
         }
     }
 
