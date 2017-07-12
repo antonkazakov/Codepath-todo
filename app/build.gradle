@@ -32,6 +32,12 @@ dependencies {
     compile "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
+    String robolectricVersion = "3.3.2"
+    testCompile "org.robolectric:robolectric:$robolectricVersion"
+
+
+
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

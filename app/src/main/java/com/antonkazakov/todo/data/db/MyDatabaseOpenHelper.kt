@@ -2,6 +2,7 @@ package com.antonkazakov.todo.data.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.support.annotation.VisibleForTesting
 import org.jetbrains.anko.db.*
 
 /**
@@ -37,5 +38,16 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "TaskDat
         db.dropTable("Tasks", true)
         onCreate(db)
     }
+
+    fun clearDb() {
+        writableDatabase.execSQL("DROP TABLE IF EXISTS TaskDataBase123")
+    }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    fun recreate() {
+        clearDb()
+        onCreate(writableDatabase)
+    }
+
 
 }
