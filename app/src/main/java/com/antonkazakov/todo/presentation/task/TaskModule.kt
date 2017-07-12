@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.tasks
+package com.antonkazakov.todo.presentation.task
 
 import com.antonkazakov.todo.data.repository.TasksRepository
 import com.antonkazakov.todo.presentation.di.ActivityScope
@@ -7,15 +7,15 @@ import dagger.Provides
 
 /**
  * @author Anton Kazakov
- * @date 08.07.17.
+ * @date 12.07.17.
  */
 @Module
-class TasksModule(val view: ITasksView) {
+class TaskModule(val view: ITaskView) {
 
     @ActivityScope
     @Provides
-    fun provideTasksPresenter(tasksRepository: TasksRepository): ITasksPresenter {
-        return TasksPresenter(tasksRepository, view)
+    fun provideTaskPresenter(tasksRepository: TasksRepository): ITaskPresenter {
+        return TaskPresenter(view, tasksRepository)
     }
 
 }

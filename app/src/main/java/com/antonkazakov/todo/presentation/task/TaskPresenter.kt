@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.tasks
+package com.antonkazakov.todo.presentation.task
 
 import com.antonkazakov.todo.data.beans.Task
 import com.antonkazakov.todo.data.repository.TasksRepository

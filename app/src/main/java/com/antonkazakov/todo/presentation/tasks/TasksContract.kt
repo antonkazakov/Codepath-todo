@@ -7,14 +7,15 @@ import com.antonkazakov.todo.presentation.base.BaseView
  * @author Anton Kazakov
  * @date 08.07.17.
  */
-interface ITaskView : BaseView {
 
-    fun showTask(task: Task)
+interface ITasksView : BaseView {
+
+    fun showTasks(tasks: List<Task>)
 
 }
 
-interface ITaskPresenter {
+interface ITasksPresenter {
 
-    fun getTask(id: Long)
+    fun getTasks()
 
 }

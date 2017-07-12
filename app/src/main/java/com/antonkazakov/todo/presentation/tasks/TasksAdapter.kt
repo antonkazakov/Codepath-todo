@@ -13,7 +13,7 @@ import com.antonkazakov.todo.data.beans.Task
  * @date 08.07.17.
  */
 
-class TasksAdapter : RecyclerView.Adapter<TasksAdapter.TasksVH>() {
+class TasksAdapter(val clickListener: TasksListClickListener) : RecyclerView.Adapter<TasksAdapter.TasksVH>() {
 
     var tasks: MutableList<Task> = ArrayList()
 
@@ -23,6 +23,7 @@ class TasksAdapter : RecyclerView.Adapter<TasksAdapter.TasksVH>() {
 
     override fun onBindViewHolder(holder: TasksVH?, position: Int) {
         holder?.tvTitle?.text = tasks[position].title
+        holder?.itemView?.setOnClickListener { clickListener.onClick(position.toLong()) }
     }
 
     override fun getItemCount(): Int {
@@ -35,16 +36,19 @@ class TasksAdapter : RecyclerView.Adapter<TasksAdapter.TasksVH>() {
         notifyItemRangeInserted(tempSize - 1, tasks1.size)
     }
 
-    fun insertSingleItem(task: Task) {
-        tasks.add(task)
-    }
-
-    fun moveItem(task: Task) {
-
+    fun insertSingleItem(task: Task, position: Int) {
+        tasks.add(position, task)
+        notifyItemInserted(position)
     }
 
     class TasksVH(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         val tvTitle by lazy { itemView?.findViewById(R.id.task_title) as TextView }
+    }
+
+    interface TasksListClickListener {
+
+        fun onClick(id: Long)
+
     }
 
 }

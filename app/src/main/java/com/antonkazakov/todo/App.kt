@@ -9,14 +9,13 @@ import com.antonkazakov.todo.data.di.DaggerAppComponent
  * @author Anton Kazakov
  * @date 07.07.17.
  */
-class App : Application() {
+class App private constructor() : Application() {
 
-    val appComponent : AppComponent = DaggerAppComponent
+    val appComponent: AppComponent = DaggerAppComponent
             .builder()
             .appModule(AppModule(this))
             .build()
 
-    override fun onCreate() {
-        super.onCreate()
-    }
+
+    
 }

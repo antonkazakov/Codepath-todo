@@ -8,13 +8,12 @@ import com.antonkazakov.todo.App
 import com.antonkazakov.todo.R
 import com.antonkazakov.todo.data.beans.Task
 import com.antonkazakov.todo.data.repository.TasksRepository
-import com.antonkazakov.todo.presentation.task.ITasksPresenter
-import com.antonkazakov.todo.presentation.task.ITasksView
+import com.antonkazakov.todo.presentation.task.TaskActivity
 import javax.inject.Inject
 
-class TasksActivity : AppCompatActivity(), ITasksView {
+class TasksActivity : AppCompatActivity(), ITasksView, TasksAdapter.TasksListClickListener {
 
-    val tasksAdapter: TasksAdapter = TasksAdapter()
+    val tasksAdapter: TasksAdapter = TasksAdapter(this)
 
     lateinit var recyclerView: RecyclerView
 
@@ -30,6 +29,10 @@ class TasksActivity : AppCompatActivity(), ITasksView {
         recyclerView.adapter = tasksAdapter
         (application as App).appComponent.plusTasksComponent(TasksModule(this)).inject(this)
         tasksPresenter.getTasks()
+    }
+
+    override fun onClick(id: Long) {
+        startActivity(TaskActivity.createExplicitIntent(this, id))
     }
 
     override fun showError() {
