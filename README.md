@@ -1,4 +1,5 @@
 # Codepath-todo
+[![Build Status](https://travis-ci.org/antonkazakov/Codepath-todo.svg?branch=master)](https://travis-ci.org/antonkazakov/Codepath-todo)
 
 Project for codepath.com Android bootcamp.
 
