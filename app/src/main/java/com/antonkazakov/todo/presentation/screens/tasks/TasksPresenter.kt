@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.tasks
+package com.antonkazakov.todo.presentation.screens.tasks
 
 import com.antonkazakov.todo.data.beans.Task
 import com.antonkazakov.todo.data.repository.TasksRepository
@@ -15,10 +15,6 @@ class TasksPresenter(val tasksRepository: TasksRepository, val tasksView: ITasks
 
     override fun getTasks() {
         async(CommonPool) {
-            for (i in 1..10) {
-                val task = Task(title = "test$i", description = "desc$i")
-                tasksRepository.insertTask(task)
-            }
             val data: Deferred<List<Task>?> = bg {
                 tasksRepository.getTasks()
             }

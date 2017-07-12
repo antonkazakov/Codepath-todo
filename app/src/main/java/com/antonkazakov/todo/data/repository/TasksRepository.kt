@@ -26,7 +26,7 @@ class TasksRepository @Inject constructor(val databaseOpenHelper: MyDatabaseOpen
         }
     }
 
-    override fun insertTask(task: Task) {
+    override fun insertTask(task: Task) : Boolean{
         databaseOpenHelper.use {
             insert("Tasks",
                     "title" to task.title,
@@ -34,6 +34,7 @@ class TasksRepository @Inject constructor(val databaseOpenHelper: MyDatabaseOpen
                     "created_at" to System.currentTimeMillis(),
                     "ends_at" to System.currentTimeMillis())
         }
+        return true
     }
 
     override fun updateTask(id: Long, task: Task) {

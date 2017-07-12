@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.tasks
+package com.antonkazakov.todo.presentation.screens.tasks
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

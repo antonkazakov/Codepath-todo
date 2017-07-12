@@ -23,7 +23,7 @@ interface ITasksRepository {
      * Insert new task to DB
      * @task Task to be inserted
      */
-    fun insertTask(task: Task)
+    fun insertTask(task: Task): Boolean
 
     /**
      * Update task

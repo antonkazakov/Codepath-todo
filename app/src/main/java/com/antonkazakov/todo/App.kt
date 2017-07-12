@@ -16,6 +16,4 @@ class App private constructor() : Application() {
             .appModule(AppModule(this))
             .build()
 
-
-    
 }

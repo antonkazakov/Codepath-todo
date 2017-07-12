@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.task
+package com.antonkazakov.todo.presentation.screens.task
 
 import com.antonkazakov.todo.presentation.di.ActivityScope
 import dagger.Subcomponent

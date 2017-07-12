@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.tasks
+package com.antonkazakov.todo.presentation.screens.tasks
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,7 +8,7 @@ import com.antonkazakov.todo.App
 import com.antonkazakov.todo.R
 import com.antonkazakov.todo.data.beans.Task
 import com.antonkazakov.todo.data.repository.TasksRepository
-import com.antonkazakov.todo.presentation.task.TaskActivity
+import com.antonkazakov.todo.presentation.screens.task.TaskActivity
 import javax.inject.Inject
 
 class TasksActivity : AppCompatActivity(), ITasksView, TasksAdapter.TasksListClickListener {

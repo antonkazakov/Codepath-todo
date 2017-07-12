@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.task
+package com.antonkazakov.todo.presentation.screens.task
 
 import android.content.Context
 import android.content.Intent

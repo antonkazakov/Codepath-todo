@@ -1,4 +1,4 @@
-package com.antonkazakov.todo.presentation.task
+package com.antonkazakov.todo.presentation.screens.task
 
 import com.antonkazakov.todo.data.repository.TasksRepository
 import com.antonkazakov.todo.presentation.di.ActivityScope
